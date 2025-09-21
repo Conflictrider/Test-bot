@@ -2,19 +2,18 @@ import asyncio
 import os
 from aiogram import Bot, Dispatcher, types
 
-API_TOKEN = os.getenv("BOT_TOKEN")  # токен будет через переменную окружения
-print("API_TOKEN:", API_TOKEN)  # временно
+API_TOKEN = os.getenv("BOT_TOKEN")
+print(">>> BOT_TOKEN из Railway:", API_TOKEN)  # проверка
+
+if not API_TOKEN:
+    raise ValueError("❌ Переменная BOT_TOKEN не найдена! Добавь её в Railway Variables")
 
 bot = Bot(token=API_TOKEN)
 dp = Dispatcher()
 
 @dp.message(commands=["start"])
 async def start_handler(message: types.Message):
-    await message.answer("Привет 👋 Я живу в облаке и работаю 24/7!")
-
-@dp.message()
-async def echo_handler(message: types.Message):
-    await message.answer(f"Ты написал: {message.text}")
+    await message.answer("✅ Бот успешно запущен на Railway!")
 
 async def main():
     await dp.start_polling(bot)
