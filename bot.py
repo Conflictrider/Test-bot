@@ -5,7 +5,6 @@ from aiogram import Bot, Dispatcher, types
 API_TOKEN = os.getenv("BOT_TOKEN")  # токен будет через переменную окружения
 print("API_TOKEN:", API_TOKEN)  # временно
 
-
 bot = Bot(token=API_TOKEN)
 dp = Dispatcher()
 
