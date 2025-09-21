@@ -7,6 +7,7 @@ API_TOKEN = os.getenv("BOT_TOKEN")  # токен будет через пере�
 bot = Bot(token=API_TOKEN)
 dp = Dispatcher()
 
+
 @dp.message(commands=["start"])
 async def start_handler(message: types.Message):
     await message.answer("Привет 👋 Я живу в облаке и работаю 24/7!")
